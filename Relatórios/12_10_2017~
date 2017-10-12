@@ -1,0 +1,32 @@
+Linguagem:
+	Python
+
+Biblioteca:
+	Scikit-learn
+
+Técnicas de Machine Learning: 
+	- Decision Tree;
+	- K-NN;
+	- Naive Bayes.
+
+Modelo de Validação:
+	10-fold cross validation
+
+Dataset:
+	Iris Flower
+
+Número de iterações:
+	1.000 loops
+
+Resultados:
+	- Decision Tree (CART):
+		Tempo: 22ms
+		Acurácia: 95,67%
+
+	- K-NN:
+		Tempo: 26ms
+		Acurácia: 98,0%
+
+	- Naive Bayes (Modelo Gaussiano):
+		Tempo: 23ms
+		Acurácia: 95,33%
