@@ -1,5 +1,4 @@
 from sklearn import datasets
-from sklearn.cross_validation import cross_val_score
 from sklearn import tree
 from sklearn.metrics import confusion_matrix
 import itertools
@@ -44,12 +43,12 @@ def plot_confusion_matrix(cm, classes,
 iris = datasets.load_iris()
 class_names = iris.target_names
 
-classifier_dt = tree.DecisionTreeClassifier()
-
-cv = cross_validation.KFold(150, n_folds=10,shuffle=True,random_state=20)
-
 test = []
 predicted = []
+
+classifier_dt = tree.DecisionTreeClassifier()
+
+cv = cross_validation.KFold(150, n_folds=10,shuffle=True,random_state=1)
 
 for train_index, test_index in cv:
 
@@ -62,6 +61,9 @@ for train_index, test_index in cv:
 	test.extend(y_tes)
 	predicted.extend(y_pred)
 
+print test
+print predicted
+
 cnf_matrix = confusion_matrix(test, predicted)
 np.set_printoptions(precision=2)
 
@@ -69,12 +71,12 @@ plt.figure()
 plot_confusion_matrix(cnf_matrix, classes=class_names,
                   title='Confusion matrix, without normalization')
 
-plt.savefig("without_normalization.png")
+plt.savefig("cm_without_normalization.png")
 
 plt.figure()
 plot_confusion_matrix(cnf_matrix, classes=class_names, normalize=True,
                   title='Normalized confusion matrix')
 
-plt.savefig("normalized.png")
+plt.savefig("cm_normalized.png")
 
 plt.show()
