@@ -15,7 +15,7 @@ for i in range(1000):
 
 	names = ['SepalLength', 'SepalWidth', 'PetalLength', 'PetalWidth', 'Class']
 
-	df = pd.read_csv('iris.data.txt', names=names)
+	df = pd.read_csv('iris.data.csv', names=names)
 
 	features = df.columns.difference(['Class'])
 
